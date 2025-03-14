@@ -7,7 +7,7 @@
 
 // Given Parameters
 const velocity = 10000; // velocity (km/h)
-const acceleration = 3; // acceleration (m/s^2)
+const acceleration = 38880; // acceleration (m/s^2)
 const timeInSecs = 3600; // seconds (1 hour)
 const timeInHours = 1; // 1 hour
 const distance = 0; // distance (km)
