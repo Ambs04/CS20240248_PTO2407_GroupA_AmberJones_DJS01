@@ -23,19 +23,23 @@ function calculateNewVelocity(acceleration, velocity, timeInHours) {
   return velocity + acceleration * timeInHours;
 }
 
-if (
-  typeof velocity !== "number" ||
-  typeof acceleration !== "number" ||
-  typeof timeInSecs !== "number" ||
-  typeof timeInHours !== "number" ||
-  typeof remainingFuel !== "number" ||
-  typeof distance !== "number" ||
-  typeof fuel !== "number" ||
-  typeof fuelBurnRate !== "number"
-) {
-  throw new Error("Parameter input invalid - needs to be a number!");
-} else {
-  console.log(`Corrected New Velocity: ${newVelocity} km/h`);
-  console.log(`Corrected New Distance: ${newDistance} km`);
-  console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
+function parameterInputValidation() {
+  if (
+    typeof velocity !== "number" ||
+    typeof acceleration !== "number" ||
+    typeof timeInSecs !== "number" ||
+    typeof timeInHours !== "number" ||
+    typeof remainingFuel !== "number" ||
+    typeof distance !== "number" ||
+    typeof fuel !== "number" ||
+    typeof fuelBurnRate !== "number"
+  ) {
+    throw new Error("Parameter input invalid - needs to be a number!");
+  } else {
+    console.log(`Corrected New Velocity: ${newVelocity} km/h`);
+    console.log(`Corrected New Distance: ${newDistance} km`);
+    console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
+  }
 }
+
+parameterInputValidation();
