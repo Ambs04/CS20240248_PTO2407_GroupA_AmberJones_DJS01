@@ -6,33 +6,34 @@
  */
 
 // Given Parameters
-const velocity = 10000; // velocity (km/h)
-const acceleration = 38880; // acceleration (m/s^2)
-const timeInSecs = 3600; // seconds (1 hour)
-const timeInHours = 1; // 1 hour
-const distance = 0; // distance (km)
-const fuel = 5000; // remaining fuel (kg)
-const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
+const param = {
+  velocity: 10000, // velocity (km/h)
+  acceleration: 38880, // acceleration (m/s^2)
+  timeInSecs: 3600, // seconds (1 hour)
+  timeInHours: 1, // 1 hour
+  distance: 0, // distance (km)
+  fuel: 5000, // remaining fuel (kg)
+  fuelBurnRate: 0.5, // fuel burn rate (kg/s)
+};
 
-const newDistance = distance + velocity * timeInHours; //calculates new distance
-const remainingFuel = fuel - fuelBurnRate * timeInSecs; //calculates remaining fuel
-const newVelocity = calculateNewVelocity(acceleration, velocity, timeInHours); //calculates new velocity based on acceleration
+const newDistance = param.distance + param.velocity * param.timeInHours; //calculates new distance
+const remainingFuel = param.fuel - param.fuelBurnRate * param.timeInSecs; //calculates remaining fuel
+const newVelocity = calculateNewVelocity(); //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-function calculateNewVelocity(acceleration, velocity, timeInHours) {
-  return velocity + acceleration * timeInHours;
+function calculateNewVelocity() {
+  return param.velocity + param.acceleration * param.timeInHours;
 }
 
 function parameterInputValidation() {
   if (
-    typeof velocity !== "number" ||
-    typeof acceleration !== "number" ||
-    typeof timeInSecs !== "number" ||
-    typeof timeInHours !== "number" ||
-    typeof remainingFuel !== "number" ||
-    typeof distance !== "number" ||
-    typeof fuel !== "number" ||
-    typeof fuelBurnRate !== "number"
+    typeof param.velocity !== "number" ||
+    typeof param.acceleration !== "number" ||
+    typeof param.timeInSecs !== "number" ||
+    typeof param.timeInHours !== "number" ||
+    typeof param.distance !== "number" ||
+    typeof param.fuel !== "number" ||
+    typeof param.fuelBurnRate !== "number"
   ) {
     throw new Error("Parameter input invalid - needs to be a number!");
   } else {
